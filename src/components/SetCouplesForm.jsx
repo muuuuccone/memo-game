@@ -32,7 +32,7 @@ export const SetCouplesForm = () => {
                     <button className={"choose-button"} onClick={() => handleSetNumber(s.size)} key={i}>
                         {s.title}
                         <br/>
-                        <span style={{fontSize:'1rem'}}>{s.size} x {s.size}</span>
+                        <span style={{fontSize:'0.9rem'}}>{s.size} couples</span>
                     </button>
                 )}
             </div>

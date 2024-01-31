@@ -1,23 +1,10 @@
-import React, {useContext, useEffect, useState} from "react";
-import styled from "styled-components";
+import React, {useContext, useEffect} from "react";
 import {GameContext} from "../contexts/GameContext.jsx";
 import timeout from "../functions/timeout.js";
 
-const StyledTile = styled.div`
-    border-radius: 0.6rem;
-    width: 100%;
-    aspect-ratio: 1/1;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    background: ${(props) => !props.clicked ? '#e4f1ee' : 'white'};
-
-    &:hover {
-        scale: 1.02;
-    }
-`
+import {iconsMap} from "../assets/iconsMap.js";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {icon} from "@fortawesome/fontawesome-svg-core";
 
 export const Tile = ({tile}) => {
     const {board, dispatch, turn, dispatchTurn} = useContext(GameContext)
@@ -58,7 +45,9 @@ export const Tile = ({tile}) => {
                     </div>
                 </div>
                 <div className={"back"}>
-                    {tile.value}
+                    <div>
+                        <FontAwesomeIcon size={'2x'} icon={iconsMap[tile.value]} />
+                    </div>
                 </div>
             </div>
         </div>

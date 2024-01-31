@@ -32,6 +32,15 @@ export const Home = () => {
 
     return (
         <GameLayout>
+            {turn.won && <div className={"won-overlay"}>
+                <div className={'won-card'}>
+                    <h3>You won!</h3>
+                    <button onClick={handleClick}
+                            style={{padding: '0.5rem', paddingInline: '1rem', fontSize: '0.9rem'}}>
+                        Restart
+                    </button>
+                </div>
+            </div>}
             <div>
                 <div>
                     <button className={'back-button'} onClick={handleClick}>
@@ -41,10 +50,16 @@ export const Home = () => {
                         Back
                     </button>
                 </div>
-                <div>
-                    <h4>
-                        Couples found: {board.filter(t => t.matched).length/2}
-                    </h4>
+                <div className={'bar-container'}>
+                    <div className={"bar-indicator"}>
+                        {board.filter(t => t.matched).length/2}/{board.length/2}
+                    </div>
+                    <div className={'bar-content'} style={{width: board.filter(t => t.matched).length/board.length*100 + "%"}}>
+
+                    </div>
+                    <div className={'bar-base'}>
+
+                    </div>
                 </div>
                 <TilesWrapper gridInterval={board.length} rows={Math.sqrt(board.length)}>
                     {
@@ -55,12 +70,6 @@ export const Home = () => {
                         )
                     }
                 </TilesWrapper>
-                {turn.won && <div>
-                    <h3>You won!</h3>
-                    <button onClick={handleClick}>
-                        Restart
-                    </button>
-                </div>}
             </div>
         </GameLayout>
     )
