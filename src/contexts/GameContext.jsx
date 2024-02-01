@@ -6,6 +6,7 @@ const GameContext = createContext()
 const Game = ({children}) => {
     const [board, dispatch] = useReducer(boardReducer,[])
     const [turn, dispatchTurn] = useReducer(turnReducer, {
+        moves:0,
         checking: false,
         won:false
     })

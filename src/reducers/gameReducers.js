@@ -65,8 +65,9 @@ function turnReducer(prevstate, action) {
             }
             return {...prevstate, won:false}
         case "RESET":
-            return {...prevstate, won:false, checking: false}
-
+            return {...prevstate, won:false, checking: false, moves:0}
+        case "NEW_MOVE":
+            return {...prevstate, moves:prevstate["moves"]+1}
         default:
             throw new Error('Action not supported')
     }

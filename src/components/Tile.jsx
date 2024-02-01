@@ -27,6 +27,7 @@ export const Tile = ({tile}) => {
     }
 
     function handleClick() {
+        dispatchTurn({type:"NEW_MOVE"})
         dispatch({id: tile.id, type: "CLICK"})
     }
 

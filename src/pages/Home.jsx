@@ -50,6 +50,9 @@ export const Home = () => {
                         Back
                     </button>
                 </div>
+                <div style={{paddingTop:'1rem', fontSize:'1.1rem', fontWeight:'bold'}}>
+                    Moves: {turn.moves}
+                </div>
                 <div className={'bar-container'}>
                     <div className={"bar-indicator"}>
                         {board.filter(t => t.matched).length/2}/{board.length/2}
